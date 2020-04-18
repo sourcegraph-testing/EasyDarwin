@@ -4,7 +4,7 @@ package cpu
 
 import (
 	"context"
-	"fmt"
+	"strconv"
 	"unsafe"
 
 	"github.com/StackExchange/wmi"
@@ -103,7 +103,7 @@ func InfoWithContext(ctx context.Context) ([]InfoStat, error) {
 
 		cpu := InfoStat{
 			CPU:        int32(i),
-			Family:     fmt.Sprintf("%d", l.Family),
+			Family:     strconv.Itoa(l.Family),
 			VendorID:   l.Manufacturer,
 			ModelName:  l.Name,
 			Cores:      int32(l.NumberOfLogicalProcessors),
